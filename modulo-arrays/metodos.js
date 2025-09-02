@@ -15,7 +15,7 @@ console.log(rmPaises);
 // Metodos que iteran sobre el array, pero no lo modifica
 
 // Map() -> Nos permite aplicarle una función a los elementos del array arrojando un nuev array apartir del anterior
-
+const lista = [1, 2, 3, 4, 5];
 const numeros = lista;
 //const numerosCuadrados = numeros.map(num => num * num);
 
@@ -47,4 +47,78 @@ let suma = 0;
 numeros.forEach(num => suma += num);
 console.log(suma);
 */
+
+// filter() -> Crea un nuevo array con elemntos que cumplan una condición dada por una función
+
+const numbers = [1, 2, 3, 4, 5];
+numbers.push(6,7,8,9,10);
+// console.log(numbers);
+// console.log(lista);
+// console.log(numeros);
+
+const evenNumbers = numbers.filter(number => number%2 === 0);
+// console.log(numbers);
+// console.log(evenNumbers);
+
+// reduce() -> ejecuta una funcion reductora sobre cada elemento de un array, arrojando como resultado un solo valor 
+
+// ejemplo caso 1
+
+const sum = numeros
+.map(number => number += 3)
+.reduce((accumulator, currentValue) => accumulator += currentValue, 0);
+// console.log(numeros);
+// console.log(sum);
+
+// Ejemplo caso 2
+const words = ['apple', 'lemon', 'bye','apple','orange','bye', 'bye'];
+const wordFrecuency = words.reduce((accumulator, currentValue) => {
+    if (accumulator[currentValue]) {
+        accumulator[currentValue]++;
+    }else {
+        accumulator[currentValue] = 1;
+    }
+    return accumulator
+},{})
+// console.log(wordFrecuency);
+
+//ejercicio de reduce()
+const list = []
+for (let i = 0; i<15; i++) {
+    list.push((Math.random()*10).toFixed(0));
+}
+const ejercicio = list.reduce((accumulator, currentValue) => {
+    if(currentValue < 5) accumulator['1-4'] += 1;
+    else if (currentValue >= 5 && currentValue < 8) accumulator['5-7'] += 1;
+    else accumulator['8-10'] += 1;
+    return accumulator;
+},{'1-4': 0, '5-7': 0, '8-10': 0})
+// console.log(list);
+// console.log(ejercicio);
+
+// find() -> Devuelve el valor del primer elemnto del array que cumple la función de prueba porporcionada
+
+const multipleOf5 = [5, 10, 15, 20];
+
+const firstNumberGreaterThan10 = multipleOf5.find(number => number>10);
+// console.log(multipleOf5);
+// console.log(firstNumberGreaterThan10);
+
+// findIndex() -> devuelve el indice del primer elemento en un array que satisface una condición 
+// proporcionada por una función. De no encontrar ningún elemnto que cumpla la condición retornará: -1
+
+const numerosRandom = [1, 3, 4, 10, 21, 12, 31, 2];
+const numberIndex = numerosRandom.findIndex(number => number > 10);
+// console.log(numberIndex);
+
+
+// slice() -> crea una copia superficial (shallow copy) de una porción del array, especificada por
+// indices de inicio y fin(Sin incluir el fin)
+
+// const words = ['apple', 'lemon', 'bye','apple','orange','bye', 'bye'];
+// console.log(words.slice(2));
+// console.log(words.slice(2,6));
+// console.log(words.slice(0,3));
+// console.log(words.slice(2, -1));
+
 

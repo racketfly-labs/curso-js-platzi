@@ -67,3 +67,36 @@ for (let i = 0; i < lista.length; i++) {
     sum += lista[i];
 }
 //console.log(sum);
+
+
+
+// spread operator -...array- => usando estos 3 puntos podemos manipular los arrays sin modificar los originales
+// Pueden ayudarnos a crear copias, a combinar o a crear otro array con elemntos adicionales. Tambien puede pasarle elementos como argumentos a una función
+
+//copia de arrays:
+const list = [... lista]; // Asi soluciono el problema que tuvé al iniciar a hacer pruebas con este documento
+// list.push(7);             // como cuando hacia: const list = lista, pero al modificar list, tambien cambiaba los items de lista
+
+// console.log(lista);
+// console.log(list);
+
+// Combinancion de arrays 
+const numeros = [5, 7, 8, 9];
+const newList = [...list, ...numeros, 10];
+// console.log(list);
+// console.log(numeros);
+// console.log(newList);
+
+//Pasar elemntos a las funciones. Si la lista tiene mas items que parametros, solo tomara en cuenta los primeros items que necesite de la lista
+
+const suma = (a, b, c, d) => a + b + c + d;
+// const resultado = suma(...numeros);
+// console.log(suma(1,2,3,5));
+// console.log(suma(... numeros));
+// console.log(suma(... list));
+// console.log(suma(... newList));
+
+// Convertir string en array
+const string = 'Hola';
+const array = [...string];
+console.log(array);// [ 'H', 'o', 'l', 'a' ]
